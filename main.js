@@ -19,6 +19,12 @@ const imagePreview = document.getElementById('imagePreview');
 const rutaCompleta = document.getElementById('rutaCompleta');
 const verImagenBtn = document.getElementById('verImagen');
 
+const txtdescrip = document.getElementById("txtdescrip");
+const txtespecifi = document.getElementById("txtespecifi");
+const txtficha = document.getElementById("txtficha");
+const gconsulta = document.getElementById("gconsulta");
+
+var texto = "";
 
 let selectedImage; // Variable para almacenar la imagen seleccionada
 
@@ -111,7 +117,25 @@ form.onsubmit = async (ev) => {
   }
 };
 
-//cambiar atributós de imagen. value y src
+txtdescrip.addEventListener('click', () => {
+  texto = "Ver descripcion del producto. Respuesta en español.";
+  gconsulta.value = "";
+  gconsulta.value = texto;
+});
+
+txtespecifi.addEventListener('click', () => {
+  gconsulta.value = "";
+  texto = "Ver Especificaciones del producto. Respuesta en español.";
+  gconsulta.value = texto;
+});
+
+
+txtficha.addEventListener('click', () => {
+  gconsulta.value = "";
+  texto = "Ver Ficha técnica del producto. Respuesta en español.";
+  gconsulta.value = texto;
+});
+
 
 
 // You can delete this once you've filled out an API key
