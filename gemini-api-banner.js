@@ -4,9 +4,8 @@ if (key === 'AIzaSyCikdo90Esq6FfstgAneMYfIlLpw0Xz5so') {
     let banner = document.createElement('div');
     banner.className = 'api-key-banner';
     banner.innerHTML = `
-      To get started with the Gemini API,
-      <a href="https://g.co/ai/idxGetGeminiKey" target="_blank">
-      get an API key</a> (Ctrl+Click) and ${action}`;
+      Descripcion de Productos con Gemini Ai.
+    `;
     document.body.prepend(banner);
   }
 }

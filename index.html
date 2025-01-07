@@ -4,37 +4,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baking with the Gemini API</title>
+  <title>Gemini Ai. Productos Descripcion</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
+
+  <input type="file" id="fileInput">
+  
+  <p id="rutaCompleta"></p>
+  <button id="verImagen">Ver Imagen</button>
+
   <main>
-    <h1>Baking with the GEMINI API</h1>
+
     <form>
       <div class="image-picker">
         <label class="image-choice">
           <input type="radio" checked name="chosen-image" value="/colcafeclasico10g.png">
-          <img src="/colcafeclasico10g.png">
-        </label>
-        <label class="image-choice">
-          <input type="radio" name="chosen-image" value="/baked_goods_2.jpg">
-          <img src="/baked_goods_2.jpg">
-        </label>
-        <label class="image-choice">
-          <input type="radio" name="chosen-image" value="/baked_goods_3.jpg">
-          <img src="/baked_goods_3.jpg">
+          <div id="imagePreview">
+            <img src="/colcafeclasico10g.png">
+          </div>
         </label>
       </div>
       <div class="prompt-box">
         <label>
           <input name="prompt" placeholder="Enter instructions here" type="text"
-            value="Provide an example recipe for the baked goods in the image">
+            value="Ver descripcion del producto. Respuesta en español">
         </label>
         <button type="submit">Go</button>
       </div>
     </form>
-    <p class="output">(Results will appear here)</p>
+    <p class="output">(Resultado Consulta...)</p>
   </main>
+
 
   <script type="module" src="/main.js"></script>
 </body>

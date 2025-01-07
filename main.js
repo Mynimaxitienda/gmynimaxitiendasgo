@@ -14,6 +14,55 @@ let form = document.querySelector('form');
 let promptInput = document.querySelector('input[name="prompt"]');
 let output = document.querySelector('.output');
 
+const fileInput = document.getElementById('fileInput');
+const imagePreview = document.getElementById('imagePreview');
+const rutaCompleta = document.getElementById('rutaCompleta');
+const verImagenBtn = document.getElementById('verImagen');
+
+
+let selectedImage; // Variable para almacenar la imagen seleccionada
+
+fileInput.addEventListener('change', function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const imageSrc = e.target.result;
+      $('#imagen').attr('src', imageSrc);
+      $('input[name="chosen-image"]').val(imageSrc);
+    };
+
+    reader.readAsDataURL(file);
+
+    // (Optional) Clear previous image preview (if any)
+    imagePreview.innerHTML = '';
+
+    // Create and display the selected image
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    imagePreview.appendChild(img);
+  } else {
+    alert('Por favor, selecciona una imagen primero.');
+  }
+});
+
+verImagenBtn.addEventListener('click', () => {
+  if (selectedImage) {
+    // Limpiar el div antes de mostrar la nueva imagen (opcional)
+    imagePreview.innerHTML = '';
+
+    // Crear un nuevo elemento <img>
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(selectedImage);
+    imagePreview.appendChild(img);
+  } else {
+    alert('Por favor, selecciona una imagen primero.');
+  }
+});
+
+
 form.onsubmit = async (ev) => {
   ev.preventDefault();
   output.textContent = 'Generating...';
@@ -61,6 +110,9 @@ form.onsubmit = async (ev) => {
     output.innerHTML += '<hr>' + e;
   }
 };
+
+//cambiar atributós de imagen. value y src
+
 
 // You can delete this once you've filled out an API key
 maybeShowApiKeyBanner(API_KEY);
