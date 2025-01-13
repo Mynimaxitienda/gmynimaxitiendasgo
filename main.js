@@ -22,6 +22,7 @@ const verImagenBtn = document.getElementById('verImagen');
 const txtdescrip = document.getElementById("txtdescrip");
 const txtespecifi = document.getElementById("txtespecifi");
 const txtficha = document.getElementById("txtficha");
+const txtnombre = document.getElementById("txtnombre");
 const gconsulta = document.getElementById("gconsulta");
 
 var texto = "";
@@ -136,6 +137,11 @@ txtficha.addEventListener('click', () => {
   gconsulta.value = texto;
 });
 
+txtnombre.addEventListener('click', () => {
+  gconsulta.value = "";
+  texto = "Ver nombre del producto. Respuesta en español.";
+  gconsulta.value = texto;
+});
 
 
 // You can delete this once you've filled out an API key
